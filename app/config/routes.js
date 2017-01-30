@@ -8,5 +8,7 @@
          templateUrl: '/app/views/main/main.html',
          controller: require('controllers/main.js')
      })
+    //.state('test',
+    //)
 
 };
