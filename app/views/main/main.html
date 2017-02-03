@@ -3,6 +3,7 @@
     
 
 body {
+    direction: ltr;
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
@@ -50,9 +51,13 @@ body {
 footer {
     margin: 50px 0;
 }
+
+p{
+    color:black;
+}
 </style>
 
-<!-- Navigation -->
+<!-- Top -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,22 +91,26 @@ footer {
 
 <!-- Page Content -->
 <div class="container">
-
     <div class="row">
 
+        <!-- menu -->
         <div class="col-md-3">
-            <p class="lead">Shop Name</p>
+            <p class="lead">Dad's Shop</p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Category 1</a>
+                <a href="#" class="list-group-item">Category 0</a>
                 <a href="#" class="list-group-item">Category 2</a>
                 <a href="#" class="list-group-item">Category 3</a>
+                <a href="#" class="list-group-item">Category 4</a>
+                <a href="#" class="list-group-item">Category 5</a>
+                <a href="#" class="list-group-item">Category 6</a>
             </div>
         </div>
 
+
         <div class="col-md-9">
 
+            <!-- gallery -->
             <div class="row carousel-holder">
-
                 <div class="col-md-12">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -128,20 +137,20 @@ footer {
                         </a>
                     </div>
                 </div>
-
             </div>
 
+            <!-- products -->
             <div class="row">
 
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
+                <div ng-repeat="product in products" class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail" ng-click="clickOnProduct(product)">
+                        <img style="height: 122px;" ng-src="{{product.pic}}" alt="">
                         <div class="caption">
-                            <h4 class="pull-right">$24.99</h4>
+                            <h4 class="pull-right">{{product.price}}</h4>
                             <h4>
-                                <a href="#">First Product</a>
+                                <a href="#">{{product.name}}</a>
                             </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                            <p>{{product.info}}</p>
                         </div>
                         <div class="ratings">
                             <p class="pull-right">15 reviews</p>
@@ -155,131 +164,27 @@ footer {
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$64.99</h4>
-                            <h4>
-                                <a href="#">Second Product</a>
-                            </h4>
-                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">12 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$74.99</h4>
-                            <h4>
-                                <a href="#">Third Product</a>
-                            </h4>
-                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">31 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$84.99</h4>
-                            <h4>
-                                <a href="#">Fourth Product</a>
-                            </h4>
-                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">6 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">$94.99</h4>
-                            <h4>
-                                <a href="#">Fifth Product</a>
-                            </h4>
-                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">18 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <h4>
-                        <a href="#">Like this template?</a>
-                    </h4>
-                    <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                    <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                </div>
-
+              
             </div>
 
+            <button ng-click="loadMore()">More</button>
         </div>
 
     </div>
-
 </div>
-<!-- /.container -->
 
+<!-- /.Footer -->
 <div class="container">
-
     <hr>
-
-    <!-- Footer -->
-    <footer>
+    <footer style="background-color:black;">
         <div class="row">
             <div class="col-lg-12">
                 <p>Copyright &copy; Your Website 2014</p>
             </div>
         </div>
     </footer>
-
 </div>
-<!-- /.container -->
+
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>

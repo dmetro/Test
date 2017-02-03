@@ -8,7 +8,10 @@
          templateUrl: '/app/views/main/main.html',
          controller: require('controllers/main.js')
      })
-    //.state('test',
-    //)
+     .state('productPage', {
+        url: '/productPage',
+        templateUrl: 'app/views/productPage/productPage.html',
+        controller: require('controllers/product.js')
+    })
 
 };

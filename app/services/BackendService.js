@@ -1,7 +1,7 @@
 ﻿module.exports = function backend_service($q, $http) {
 
-    this.login = function (data) {
-        return $http.post('/api/user/login', data)
+    this.getAllProducts = function () {
+        return $http.post('/api/product/getproducts')
             .then(function (response) {
                 return response
             },
