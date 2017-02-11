@@ -3,6 +3,7 @@
     var product = dataService.product();
     if (!isEmpty(product)) {
         console.log("product: ", product);
+        $scope.product = product;
     } else {
         //var cookieWObject = $cookieStore.getObject('cookieName');
         console.log("empty");

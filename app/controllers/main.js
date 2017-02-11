@@ -3,21 +3,17 @@
     $scope.products = [];
 
     BackendService.getAllProducts().then(function (response) {
-
-        $scope.products = [
-        { name: 'blblba', price: '21:99', info: 'TSee more snippets like this online store item at , blah', pic: 'https://cdn.atlassbx.com/FB/11087209645403/AZR_FY17_language_HE_IL_728x90_BAN_Sept-16.png' },
-        { name: 'blblba2', price: '25:99', info: 'The equals2 operator does See more snippets like this online store item at blah, blah', pic: 'https://i.stack.imgur.com/wfMTF.jpg?s=328&g=1' },
-        { name: 'blblba3', price: '20:99', info: 'The See more snippets like this online store item at  equals3 operator does blah, blah', pic: 'http://placehold.it/320x150' },
-        { name: 'blblba4', price: '250:99', info: 'The equals4 operator does blah, blahSee more snippets like this online store item at ', pic: 'http://placehold.it/320x150' }
-        ]
-
-        //var products = {};
-        //data["providerId"] = 1;
-        //data["rotationId"] = 1;
+        
         if (response != null) {
             if (response.data["Error"] != null) {
                 //$scope.products = response.data.Data;
-                console.log("response: " , response);
+                console.log("getAllProducts() response: ", response);
+                $scope.products = [
+                    { name: 'blblba', price: '21:99', info: 'TSee more snippets like this online store item at , blah', pic: 'https://cdn.atlassbx.com/FB/11087209645403/AZR_FY17_language_HE_IL_728x90_BAN_Sept-16.png' },
+                    { name: 'blblba2', price: '25:99', info: 'The equals2 operator does See more snippets like this online store item at blah, blah', pic: 'https://i.stack.imgur.com/wfMTF.jpg?s=328&g=1' },
+                    { name: 'blblba3', price: '20:99', info: 'The See more snippets like this online store item at  equals3 operator does blah, blah', pic: 'http://placehold.it/320x150' },
+                    { name: 'blblba4', price: '250:99', info: 'The equals4 operator does blah, blahSee more snippets like this online store item at ', pic: 'http://placehold.it/320x150' }
+                ]
             }
             else {
                 console.log("Issue")
