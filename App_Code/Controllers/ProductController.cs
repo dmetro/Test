@@ -14,6 +14,7 @@ public class ProductController : ApiController
     {
         try
         {
+            var items = StoreItem.GetItemsLazyLoading(3, 7);
             return Ok(new { Error = "", data = "Ok" });
         }
         catch (Exception exs)
