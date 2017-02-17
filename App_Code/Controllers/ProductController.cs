@@ -10,12 +10,12 @@ public class ProductController : ApiController
 {
     [HttpPost]
     [Route("getproducts")]
-    public IHttpActionResult GetProducts([FromBody] dynamic obj)
+    public IHttpActionResult GetProducts(dynamic obj)
     {
         try
         {
-            var items = StoreItem.GetItemsLazyLoading(3, 7);
-            return Ok(new { Error = "", data = "Ok" });
+            var items = StoreItem.GetItemsLazyLoading(obj.skip, obj.take);
+            return Ok(new { Error = "", data = items });
         }
         catch (Exception exs)
         {

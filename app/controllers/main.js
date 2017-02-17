@@ -1,8 +1,15 @@
 ﻿module.exports = function ($scope, BackendService, $state, dataService) {
 
+    var skip = 0;
+    var take = 3;
+    //var data = {};
+    //data["skip"] = skip;
+    //data["take"] = take;
+
     $scope.products = [];
 
-    BackendService.getAllProducts().then(function (response) {
+    var data = JSON.stringify({ skip: skip, take: take});
+    BackendService.getAllProducts(data).then(function (response) {
         
         if (response != null) {
             if (response.data["Error"] != null) {
@@ -16,7 +23,7 @@
                 ]
             }
             else {
-                console.log("Issue")
+                console.log("Issue getAllProducts()");
             }
         }
     });
