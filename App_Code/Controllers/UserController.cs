@@ -12,40 +12,30 @@ public class UserController : ApiController
     [Route("login")]
     public IHttpActionResult Login([FromBody] dynamic obj)
     {
-        try
+        var delay = Helper.Delay(3000);
+        if (obj.userName != "")
         {
-            //cretaabusinesses();
-            //cretaBranches();
-            //string user = obj.userName;
-            //string password = obj.userPassword;
-            //var user = null;
-            //var user_ = null;
-
-            //if (user_ != null)
-            //{
-            //    return Ok(new { Error = "", data = user_.Id });
-            //}
-            //else
-            //{
-            //   
-            //}
+            return Ok(new { Error = "", data = obj });
+        }
+        else
+        {
             return Ok(new { Error = "User not exist", data = "" });
         }
-        catch (Exception exs)
-        {
-            return InternalServerError(new Exception(exs.Message + "Login"));
-        }
     }
-
 
     [HttpPost]
-    [Route("Register")]
-    public async Task<IHttpActionResult> Registretion([FromBody] dynamic user)
+    [Route("register")]
+    public async Task<IHttpActionResult> Register([FromBody] dynamic user)
     {
-        //test
-        return StatusCode(System.Net.HttpStatusCode.Accepted); 
+        var d = await Helper.DelayAsync(2000);
+        return Ok(new { Error = "", data = user });
     }
 
-
-
+    [HttpGet]
+    [Route("favorite/{userId}")]
+    public IHttpActionResult GetFavorite(int userId)
+    {
+        //var us = userId;
+        return Ok(new { Error = "", data = "" });
+    }
 }

@@ -1,4 +1,4 @@
-﻿angular.module('byClick', ['ui.router', 'jkuri.datepicker', 'ui.bootstrap'])
+﻿angular.module('dadsShop', ['ui.router', 'jkuri.datepicker', 'ui.bootstrap'])
     // Directives
     //.directive(....)
 

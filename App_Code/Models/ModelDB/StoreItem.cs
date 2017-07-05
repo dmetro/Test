@@ -23,6 +23,9 @@ public class StoreItem: Model<StoreItem>
     public int Size { get; set; }
     public string Description { get; set; }
 
+    [PetaPoco.Ignore]
+    public string Pic { get; set; }
+
     public static List<StoreItem> GetItemsLazyLoading(int skip, int take)
     {
         try
@@ -30,6 +33,22 @@ public class StoreItem: Model<StoreItem>
             using (var connection = Connection.Create())
             {
                 return connection.Fetch<StoreItem>("where Id > @0 and Id <= @1", skip, take+skip);
+            }
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    public static List<StoreItem> GetItemStoreProcedure()
+    {
+        try
+        {
+            using (var connection = Connection.Create())
+            {
+                var dd = connection.Fetch<StoreItem>("exec sp_getAllStoreItem");
+                return dd;
             }
         }
         catch (Exception)
